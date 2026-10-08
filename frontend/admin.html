@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel | Shankari Riverfront Resort</title>
+  <meta name="description" content="Administrator panel for Shankari Riverfront Resort: rooms, bookings, seasonal pricing, enquiries and settings." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Karla:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+
+  <!-- Login -->
+  <section id="loginSection">
+    <div class="panel login-box">
+      <p class="eyebrow">Administrator</p>
+        <h2>Admin Login</h2>
+      <form id="loginForm" style="margin-top:16px">
+          <div class="field"><label for="username">Username (admin email)</label><input type="email" id="username" name="email" autocomplete="username" required /></div>
+          <div class="field"><label for="password">Password</label><input type="password" id="password" name="password" autocomplete="current-password" required /></div>
+        <button class="btn" type="submit">Login</button>
+      </form>
+      <div id="loginMessage" class="hidden"></div>
+      <p class="muted" style="margin-top:14px;font-size:.85rem">
+        Create the admin account with <code>npm run seed</code> inside the backend folder.
+      </p>
+      <p style="margin-top:10px"><a href="/">&larr; Back to website</a></p>
+    </div>
+  </section>
+
+  <!-- Panel -->
+  <section id="panelSection" class="admin-wrap hidden">
+    <div class="admin-header">
+      <div>
+        <h2>Resort Admin Panel</h2>
+        <p class="muted" data-config="resortName">Shankari Riverfront Resort</p>
+      </div>
+      <div>
+        <a class="btn btn-small btn-outline" href="/">View Website</a>
+        <button class="btn btn-small" id="logoutBtn">Logout</button>
+      </div>
+    </div>
+
+    <div class="admin-tabs">
+      <button data-tab="dashboard" class="active">Dashboard</button>
+      <button data-tab="rooms">Rooms</button>
+      <button data-tab="bookings">Bookings</button>
+      <button data-tab="seasons">Seasonal Pricing</button>
+      <button data-tab="enquiries">Enquiries</button>
+      <button data-tab="settings">Settings &amp; Content</button>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="tab" id="tab-dashboard">
+      <h3>Overview</h3>
+      <div class="stat-grid" id="statGrid" style="margin-top:14px"></div>
+    </div>
+
+    <!-- Rooms -->
+    <div class="tab hidden" id="tab-rooms">
+      <h3>Rooms</h3>
+      <p class="muted" style="font-size:.85rem">Image fields use filenames from <code>frontend/assets/images/</code>, separated by commas.</p>
+      <div class="admin-table-wrap" id="roomsTable" style="margin-top:14px"></div>
+
+      <div class="panel" style="margin-top:26px">
+        <h3>Add Room Type</h3>
+        <form id="addRoomForm" style="margin-top:12px">
+          <div class="form-row">
+            <div class="field"><label for="rname">Name</label><input id="rname" name="name" required /></div>
+            <div class="field"><label for="rtype">Type</label><input id="rtype" name="type" required /></div>
+            <div class="field"><label for="rprice">Price per night</label><input id="rprice" name="price" type="number" required /></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label for="rcap">Capacity</label><input id="rcap" name="capacity" type="number" value="3" required /></div>
+            <div class="field"><label for="rsize">Size</label><input id="rsize" name="size" value="240" /></div>
+            <div class="field"><label for="rtotal">Number of rooms</label><input id="rtotal" name="totalRooms" type="number" value="1" required /></div>
+          </div>
+          <div class="field"><label for="rimages">Images (comma separated filenames)</label><input id="rimages" name="images" value="luxury-room.jpg" /></div>
+          <div class="field"><label for="ramen">Amenities (comma separated)</label><input id="ramen" name="amenities" value="Air Conditioning, Wi-Fi, Electric Kettle, Breakfast included, Room Service, Refrigerator, Sofa, Table, Chairs, Bed, Wardrobe" /></div>
+          <div class="field"><label for="rdesc">Description</label><textarea id="rdesc" name="description" rows="3"></textarea></div>
+          <button class="btn" type="submit">Add Room</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bookings -->
+    <div class="tab hidden" id="tab-bookings">
+      <h3>Bookings</h3>
+      <div style="display:flex;gap:10px;margin:14px 0">
+        <input id="bookingSearch" placeholder="Search by booking ID, name, email or phone" style="flex:1" />
+        <button class="btn btn-small" id="bookingSearchBtn">Search</button>
+      </div>
+      <div class="admin-table-wrap" id="bookingsTable"></div>
+    </div>
+
+    <!-- Seasonal pricing -->
+    <div class="tab hidden" id="tab-seasons">
+      <h3>Seasonal Pricing</h3>
+      <p class="muted" style="font-size:.85rem">The booking price is calculated night by night using these seasons. Nights outside every season use the room base price.</p>
+      <div class="admin-table-wrap" id="seasonsTable" style="margin-top:14px"></div>
+
+      <div class="panel" style="margin-top:26px">
+        <h3>Add Seasonal Price</h3>
+        <form id="addSeasonForm" style="margin-top:12px">
+          <div class="form-row">
+            <div class="field"><label for="sroom">Room type</label><input id="sroom" name="roomType" placeholder="Suite" required /></div>
+            <div class="field"><label for="sname">Season name</label><input id="sname" name="seasonName" placeholder="Peak Season" required /></div>
+            <div class="field"><label for="sprice">Price per night</label><input id="sprice" name="pricePerNight" type="number" required /></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label for="sstart">Start date</label><input id="sstart" name="startDate" type="date" required /></div>
+            <div class="field"><label for="send">End date</label><input id="send" name="endDate" type="date" required /></div>
+            <div class="field"><label>&nbsp;</label><button class="btn" type="submit">Add Season</button></div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Enquiries -->
+    <div class="tab hidden" id="tab-enquiries">
+      <h3>Enquiries</h3>
+      <div class="admin-table-wrap" id="enquiriesTable" style="margin-top:14px"></div>
+    </div>
+
+    <!-- Settings -->
+    <div class="tab hidden" id="tab-settings">
+      <h3>Cancellation Settings &amp; Website Content</h3>
+      <form id="settingsForm" class="panel" style="margin-top:14px">
+        <div class="form-row">
+          <div class="field">
+            <label for="cancellationEnabled">Cancellation enabled</label>
+            <select id="cancellationEnabled" name="cancellationEnabled">
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select>
+          </div>
+          <div class="field"><label for="cancellationDeadlineHours">Deadline (hours before check-in)</label><input id="cancellationDeadlineHours" name="cancellationDeadlineHours" type="number" /></div>
+          <div class="field"><label for="refundPercentage">Refund percentage</label><input id="refundPercentage" name="refundPercentage" type="number" min="0" max="100" /></div>
+        </div>
+        <div class="field"><label for="cancellationPolicyText">Cancellation policy text</label><textarea id="cancellationPolicyText" name="cancellationPolicyText" rows="3"></textarea></div>
+        <div class="field"><label for="aboutText">About text</label><textarea id="aboutText" name="aboutText" rows="3"></textarea></div>
+        <div class="form-row">
+          <div class="field"><label for="contactPhone">Phone</label><input id="contactPhone" name="contactPhone" /></div>
+          <div class="field"><label for="contactEmail">Email</label><input id="contactEmail" name="contactEmail" /></div>
+          <div class="field"><label for="contactAddress">Address</label><input id="contactAddress" name="contactAddress" /></div>
+        </div>
+        <div class="field"><label for="galleryImages">Gallery images (comma separated filenames)</label><input id="galleryImages" name="galleryImages" /></div>
+        <button class="btn" type="submit">Save Settings</button>
+      </form>
+      <div id="settingsMessage" class="hidden"></div>
+    </div>
+  </section>
+
+    <!-- Editable configuration (edit these files, not the pages) -->
+  <script src="config/contact.js"></script>
+  <script src="config/resort.js"></script>
+  <script src="config/admin.js"></script>
+  <script src="config/socialLinks.js"></script>
+  <script src="social-links/youtube.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Now | Shankari Riverfront Resort</title>
+  <meta name="description" content="Check live room availability, view seasonal prices and book your stay at Shankari Riverfront Resort with secure online payment." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Karla:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <strong data-config="resortName">Shankari Riverfront Resort</strong>
+        <span data-config="secondaryTagline">Riverfront Luxury Retreat</span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="rooms.html">Rooms</a></li>
+        <li><a href="facilities.html">Facilities</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="btn btn-small" href="booking.html">Book Now</a></li>
+      </ul>
+    </div>
+  </header>
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Reservations</p>
+        <h2>Book Your Stay</h2>
+        <p class="muted">Availability and prices are calculated by the resort system for your selected dates.</p>
+      </div>
+
+      <div id="bookingSteps">
+        <!-- Step 1: search -->
+        <div class="panel">
+          <h3>1. Check Availability</h3>
+          <form id="searchForm" style="margin-top:14px">
+            <div class="form-row">
+              <div class="field"><label for="checkIn">Check-in</label><input type="date" id="checkIn" name="checkIn" required /></div>
+              <div class="field"><label for="checkOut">Check-out</label><input type="date" id="checkOut" name="checkOut" required /></div>
+              <div class="field"><label for="roomType">Room type</label><select id="roomType" name="roomType"></select></div>
+            </div>
+            <div class="form-row">
+              <div class="field"><label for="adults">Adults</label><input type="number" id="adults" name="adults" value="2" min="1" max="3" required /></div>
+              <div class="field"><label for="children">Children</label><input type="number" id="children" name="children" value="0" min="0" max="2" required /></div>
+              <div class="field"><label for="numberOfRooms">Number of rooms</label><input type="number" id="numberOfRooms" name="numberOfRooms" value="1" min="1" max="9" required /></div>
+            </div>
+            <p class="muted" id="bookingWindowNote" style="font-size:.85rem;margin-bottom:12px"></p>
+            <button class="btn" type="submit">Check Availability</button>
+          </form>
+          <div id="searchMessage" class="hidden"></div>
+        </div>
+
+        <!-- Step 2 + 3: summary and guest details -->
+        <div id="summarySection" class="hidden" style="margin-top:26px">
+          <div class="grid grid-2">
+            <div class="panel">
+              <h3>2. Booking Summary</h3>
+              <div id="summaryStay" style="margin-top:12px"></div>
+              <div id="summaryPrice" style="margin-top:18px"></div>
+            </div>
+            <div class="panel">
+              <h3>3. Guest Details</h3>
+              <form id="guestForm" style="margin-top:12px">
+                <div class="field"><label for="customerName">Full name</label><input type="text" id="customerName" name="customerName" required /></div>
+                <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" required /></div>
+                <div class="field"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" required /></div>
+                <button class="btn" type="submit">Proceed to Payment</button>
+              </form>
+              <div id="payMessage" class="hidden"></div>
+              <p class="muted" style="margin-top:14px;font-size:.85rem">
+                Payments are processed securely by Razorpay. The final amount is calculated by the resort system.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Confirmation / failure -->
+      <div id="resultSection" class="hidden" style="margin-top:26px"></div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-social">
+      <p class="footer-social-title">Connect with us</p>
+      <div class="footer-social-icons">
+        <a href="#" data-config="instagram" data-config-text="false" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069-3.204 0-3.584-.012-4.849-.069-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="container footer-grid">
+      <div>
+        <h4 data-config="resortName">Shankari Riverfront Resort</h4>
+        <p data-config="tagline">Shankari &ndash; The Daughter of Lord Shiva</p>
+        <p class="muted" style="margin-top:10px" data-config="address">5G33+8J4, Balgaon, Akbarpura, Madhya Pradesh 451228</p>
+      </div>
+      <div>
+        <h4>Information</h4>
+        <ul>
+          <li><a href="cancellation.html">Cancellation &amp; Refund Policy</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#" data-config="phone">+91 89596 55405</a></li>
+          <li><a href="#" data-config="email">engparidhi29@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span id="footerYear"></span> <span data-config="resortName">Shankari Riverfront Resort</span>. All rights reserved.
+    </div>
+  </footer>
+    <!-- Editable configuration (edit these files, not the pages) -->
+  <script src="config/contact.js"></script>
+  <script src="config/resort.js"></script>
+  <script src="config/admin.js"></script>
+  <script src="config/socialLinks.js"></script>
+  <script src="social-links/youtube.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/payment.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</body>
+</html>

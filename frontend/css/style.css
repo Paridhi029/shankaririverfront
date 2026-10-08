@@ -1,0 +1,817 @@
+/* ==========================================================================
+   Shankari Riverfront Resort - main stylesheet
+   Colours inspired by the resort at dusk: warm ochre cottages, basalt stone,
+   terracotta brick, amber string lights and the green riverside lawn.
+   ========================================================================== */
+
+:root {
+  --cream: #f8efe2;
+  --offwhite: #fffbf5;
+  /* deep warm stone - used for headings, navbar and buttons */
+  --green: #3c2b21;
+  --green-light: #6b4a33;
+  --charcoal: #2b211b;
+  /* amber string-light gold */
+  --gold: #c98a3c;
+  --terracotta: #b4552f;
+  --lawn: #6d7f5f;
+  --muted: #7b6a5b;
+  --border: #e9dcc9;
+  --radius: 4px;
+  --max: 1160px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Karla", Arial, sans-serif;
+  color: var(--charcoal);
+  background: var(--offwhite);
+  line-height: 1.65;
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--green);
+}
+
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2.2rem;
+}
+h3 {
+  font-size: 1.4rem;
+}
+
+a {
+  color: var(--green);
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section-cream {
+  background: var(--cream);
+}
+
+.section-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 48px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.72rem;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-block;
+  padding: 13px 26px;
+  border: 1px solid var(--green);
+  background: var(--green);
+  color: #fdfcf9;
+  font-size: 0.85rem;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+  font-family: inherit;
+}
+
+.btn:hover {
+  background: var(--green-light);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--green);
+}
+
+.btn-outline:hover {
+  background: var(--green);
+  color: var(--offwhite);
+}
+
+.btn-light {
+  background: transparent;
+  border-color: #fdfcf9;
+  color: #fdfcf9;
+}
+
+.btn-light:hover {
+  background: #fdfcf9;
+  color: var(--green);
+}
+
+.btn-gold {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+}
+
+.btn-gold:hover {
+  background: #99783a;
+  border-color: #99783a;
+}
+
+.btn-small {
+  padding: 9px 16px;
+  font-size: 0.72rem;
+}
+
+/* ---------- Navbar ---------- */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--offwhite);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  line-height: 1.15;
+}
+
+.brand strong {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--green);
+  display: block;
+}
+
+.brand span {
+  font-size: 0.66rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.86rem;
+  letter-spacing: 0.6px;
+  color: var(--charcoal);
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  border-bottom-color: var(--gold);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 1.6rem;
+  color: var(--green);
+  cursor: pointer;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fdfcf9;
+  background-image: url("../assets/images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(25, 40, 30, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 60px 20px;
+  max-width: 760px;
+}
+
+.hero-content h1 {
+  color: #fdfcf9;
+}
+
+.hero-content p {
+  margin: 14px 0 28px;
+  font-size: 1.05rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.page-hero {
+  min-height: 34vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fdfcf9;
+}
+
+.page-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(25, 40, 30, 0.55);
+}
+
+.page-hero h1 {
+  position: relative;
+  z-index: 1;
+  color: #fdfcf9;
+}
+
+/* ---------- Generic grids / cards ---------- */
+
+.grid {
+  display: grid;
+  gap: 26px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.card {
+  background: var(--offwhite);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.card img {
+  height: 220px;
+  object-fit: cover;
+  width: 100%;
+  transition: transform 0.4s ease;
+}
+
+.card:hover img {
+  transform: scale(1.04);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body h3 {
+  margin-bottom: 6px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.price {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.3rem;
+  color: var(--green);
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.feature {
+  background: var(--offwhite);
+  border: 1px solid var(--border);
+  padding: 26px;
+}
+
+.feature h3 {
+  margin-bottom: 6px;
+  font-size: 1.15rem;
+}
+
+/* two column text + image */
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.split img {
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+}
+
+/* amenity list */
+
+.amenities {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px 20px;
+  margin-top: 14px;
+}
+
+.amenities li {
+  padding-left: 18px;
+  position: relative;
+  font-size: 0.92rem;
+}
+
+.amenities li::before {
+  content: "•";
+  color: var(--gold);
+  position: absolute;
+  left: 0;
+}
+
+/* ---------- Gallery ---------- */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.gallery-grid img {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+}
+
+.gallery-grid img:hover {
+  opacity: 0.85;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 25, 20, 0.9);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox img {
+  max-height: 85vh;
+  max-width: 90vw;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 26px;
+  font-size: 2rem;
+  color: #fff;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+/* ---------- Forms ---------- */
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.field label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--charcoal);
+  border-radius: var(--radius);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 1px solid var(--gold);
+}
+
+.panel {
+  background: var(--offwhite);
+  border: 1px solid var(--border);
+  padding: 28px;
+}
+
+.message {
+  padding: 12px 14px;
+  margin: 14px 0;
+  border-left: 3px solid var(--gold);
+  background: var(--cream);
+  font-size: 0.92rem;
+}
+
+.message.error {
+  border-left-color: #a33a2c;
+}
+
+.message.success {
+  border-left-color: #2f7a4a;
+}
+
+.hidden {
+  display: none;
+}
+
+/* summary table */
+
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+
+.summary-table th,
+.summary-table td {
+  text-align: left;
+  padding: 9px 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.summary-table tr.total td {
+  font-weight: 700;
+  border-bottom: 0;
+}
+
+/* availability pills */
+
+.pill {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 20px;
+}
+
+.pill-ok {
+  background: #e4efe6;
+  color: #2f7a4a;
+}
+
+.pill-out {
+  background: #f4e2df;
+  color: #a33a2c;
+}
+
+/* ---------- CTA band ---------- */
+
+.cta-band {
+  background: var(--green);
+  color: var(--cream);
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.cta-band h2 {
+  color: #fdfcf9;
+}
+
+.cta-band p {
+  margin: 12px 0 24px;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  background: var(--charcoal);
+  color: #d9d5c9;
+  padding: 56px 0 22px;
+  font-size: 0.9rem;
+}
+
+.footer h4 {
+  color: #fdfcf9;
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+}
+
+.footer a {
+  color: #d9d5c9;
+}
+
+.footer a:hover {
+  color: var(--gold);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 32px;
+}
+
+.footer ul {
+  list-style: none;
+}
+
+.footer ul li {
+  margin-bottom: 7px;
+}
+
+.footer-social {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.footer-social-title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.25rem;
+  color: var(--gold);
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.footer-social-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.footer-social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #d9d5c9;
+  border-radius: 50%;
+  color: #d9d5c9;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.footer-social-icons a:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--charcoal);
+}
+
+.footer-social-icons svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.footer-bottom {
+  border-top: 1px solid #3a3a34;
+  margin-top: 36px;
+  padding-top: 16px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #9a968b;
+}
+
+
+/* ==========================================================================
+   Floating reservation card + WhatsApp button
+   ========================================================================== */
+
+.floating-widgets {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.reservation-card {
+  position: relative;
+  background: var(--green);
+  color: var(--cream);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 16px 40px 16px 18px;
+  max-width: 260px;
+  box-shadow: 0 14px 30px rgba(43, 33, 27, 0.28);
+}
+
+.reservation-title {
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--cream);
+}
+
+.reservation-phone {
+  display: block;
+  margin-top: 6px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.5rem;
+  color: var(--gold);
+}
+
+.reservation-phone:hover {
+  color: var(--cream);
+}
+
+.reservation-note {
+  margin-top: 4px;
+  font-size: 0.78rem;
+  color: #d9d5c9;
+}
+
+.reservation-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  background: none;
+  border: 0;
+  color: var(--cream);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.whatsapp-fab {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 22px rgba(37, 211, 102, 0.35);
+}
+
+/* ==========================================================================
+   Policy pages (Privacy, Terms, Cancellation) — one shared layout
+   ========================================================================== */
+.policy {
+  max-width: 1000px;
+}
+.policy-updated {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 18px;
+}
+.policy-intro {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 26px;
+}
+.policy h2 {
+  font-size: 1.3rem;
+  margin: 34px 0 10px;
+  color: var(--green);
+}
+.policy h3 {
+  font-size: 1.05rem;
+  margin: 20px 0 8px;
+}
+.policy p {
+  line-height: 1.85;
+  margin-bottom: 12px;
+}
+.policy-list {
+  margin: 8px 0 14px 20px;
+}
+.policy-list li {
+  line-height: 1.8;
+  margin-bottom: 8px;
+  list-style: disc;
+}
+.policy-box {
+  background: var(--cream, #faf6f0);
+  border: 1px solid rgba(60, 43, 33, 0.12);
+  border-left: 4px solid var(--gold);
+  border-radius: 10px;
+  padding: 22px 24px;
+  margin: 26px 0;
+}
+.policy-box h3 {
+  margin-top: 0;
+  color: var(--green);
+}
+.policy-contact {
+  margin-top: 44px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(60, 43, 33, 0.15);
+}
+
+/* Video section */
+.video-frame {
+  max-width: 820px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(60, 43, 33, 0.18);
+}
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
